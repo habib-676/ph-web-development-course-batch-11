@@ -9,26 +9,30 @@
   <body>
     <section>
       <strong>Storytelling Contest & Feedback</strong>
-      <form>
-        <label for="story">Story:</label>
-        <textarea
-          name="story"
-          id=""
-          cols="40"
-          rows="10"
-          placeholder="Write Your Story Here..."
-        ></textarea>
+      <div class="form-container">
+        <form>
+          <div class="story-box">
+            <label for="story">Story:</label>
+            <textarea
+              name="story"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Write Your Story Here..."
+            ></textarea>
+          </div>
 
-        <label for="rating">Rate your story :</label>
-        <select name="rating" id="">
-          <option value="good">good</option>
-          <option value="excellent">excellent</option>
-          <option value="so so">so so</option>
-          <option value="bad">bad</option>
-        </select>
-
-        <button class="btn">Submit</button>
-      </form>
+          <label for="rating">Rate your story :</label>
+          <select name="rating">
+            <option value="good">Good</option>
+            <option value="excellent">Excellent</option>
+            <option value="so so">So so</option>
+            <option value="bad">Bad</option>
+          </select>
+          <br />
+          <button class="btn">Submit</button>
+        </form>
+      </div>
     </section>
   </body>
 </html>
