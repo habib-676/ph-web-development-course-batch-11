@@ -15,21 +15,29 @@
   font-size: 20px;
 }
 .btn-primary {
-  padding: 18px 28px;
+  padding: 15px 28px;
   background-color: #fd6e0a;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* header styles */
+header {
+  background-image: url(../images/developer.png), url(../images/header_bg.png);
+  background-repeat: no-repeat;
+  background-size: contain, auto 65%;
+  background-position: top left, bottom right;
 }
 /* nav styles */
 .nav-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 50px 185px;
+  margin: 40px 160px 35px 160px;
 }
 .nav-title {
   font-size: 45px;
@@ -46,4 +54,43 @@
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+/* banner styles */
+.banner-greetings {
+  color: #474747;
+  font-size: 36px;
+  font-weight: 600;
+}
+.person-name {
+  font-size: 65px;
+  color: #181818;
+}
+.banner-dp {
+  width: 467px;
+}
+.banner-description {
+  font-size: 14px;
+  line-height: 24px;
+  color: #757575;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.banner {
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 30px 0px 160px;
+}
+#download-btn {
+  margin-right: 24px;
+}
+.contact-btn {
+  padding: 14px 18px;
+  color: #fd6e0a;
+  border: #fd6e0a solid 1px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
 }
