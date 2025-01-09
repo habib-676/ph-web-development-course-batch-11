@@ -24,7 +24,16 @@
   border-radius: 5px;
   cursor: pointer;
 }
-
+.section-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #181818;
+}
+.section-des {
+  font-size: 15px;
+  line-height: 24px;
+  color: #757575;
+}
 /* header styles */
 header {
   background-image: url(../images/developer.png), url(../images/header_bg.png);
@@ -93,4 +102,40 @@ header {
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/* main styles */
+main {
+  max-width: 100vw;
+}
+
+/* about styles */
+.about {
+  width: 660px;
+  background-color: #fff8f3;
+  margin: 104px auto;
+  padding: 104px 120px;
+}
+.about-container {
+  background-color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.about-personal-info {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+.item-des {
+  font-weight: bold;
+  font-size: 16px;
+  color: #474747;
+}
+.item-title {
+  font-size: 16px;
+  color: #757575;
+  line-height: 24px;
 }
