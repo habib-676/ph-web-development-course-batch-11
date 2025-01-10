@@ -1,0 +1,48 @@
+/* My laptop screen is 1280 X 720 px ; so all measurements are in 80% */
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Fira Sans", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* shared styles */
+.btn-primary {
+  color: white;
+  background-color: #006a50;
+  padding: 13px 26px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+}
+/* hero styles */
+header {
+  margin: 96px 128px 64px 128px;
+  padding: 0 48px;
+  height: 448px;
+  background-color: #c6e4d6;
+  border: none;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+}
+.hero-details {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  align-items: flex-start;
+}
+.hero-subtitle {
+  font-size: 20px;
+  color: #0e0e0e75;
+}
+.hero-title {
+  font-size: 44px;
+  font-weight: bold;
+}
+img {
+  height: 320px;
+}
