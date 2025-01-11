@@ -32,6 +32,9 @@
 .green-bg {
   background-color: #09a15c;
 }
+.light-green-bg {
+  background-color: #c6e4d6;
+}
 .yellow-bg {
   background-color: #ffc239;
 }
@@ -206,4 +209,31 @@ section {
   border-bottom-right-radius: 6px;
   border: none;
   font-weight: 500;
+}
+
+/* footer styles */
+footer {
+  margin: 0 128px 40px 128px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+hr {
+  width: 895px;
+  color: rgba(0, 0, 0, 0.1);
+}
+.social-box {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+.social-box > a > img {
+  height: 19px;
 }
