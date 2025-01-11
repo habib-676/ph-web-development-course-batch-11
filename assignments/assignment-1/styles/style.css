@@ -151,3 +151,27 @@ section {
 .sec-card {
   margin: 19px 0 64px 0;
 }
+.donation {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+.donation-amount > h2 {
+  padding: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 12.8px;
+}
+.donation-amount {
+  display: flex;
+  margin: 0 83.6px 0 83.6px;
+  gap: 15px;
+}
+.other-amount {
+  padding: 16px 32px;
+  width: 820px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
