@@ -105,3 +105,49 @@ section {
 .vision-card > button {
   margin-top: 21px;
 }
+.quote-section {
+  padding: 38px 19px;
+  margin-bottom: 64px;
+  border: 1px solid #0e0e0e3e;
+  border-radius: 12px;
+  background-image: url(../assets/quote-bg.png);
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+.yunus {
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+.yunus-position {
+  font-size: 12.8px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.recent-section > .des-primary {
+  margin-bottom: 25px;
+}
+.recent-card {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 19.2px;
+  padding: 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+.recent-card > img {
+  height: 244px;
+  border: none;
+  border-radius: 19.2px;
+}
+.recent-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 15px;
+}
+.sec-card {
+  margin: 19px 0 64px 0;
+}
