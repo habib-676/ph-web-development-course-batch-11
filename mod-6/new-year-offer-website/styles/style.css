@@ -67,6 +67,38 @@ header {
   font-size: 38px;
   color: #070211;
 }
-.hny-sticker {
-  height: 400px;
+/* midnight party */
+.party-sec {
+  background: linear-gradient(90deg, black, rgba(0, 0, 0, 0)),
+    url(../images/Vectorrr.png);
+  background-position: center;
+  background-size: cover;
+  height: 480px;
+  color: white;
+  padding-left: 100px;
+  padding-right: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: none;
+  border-radius: 12px;
+}
+.welcome-title {
+  font-size: 51px;
+  line-height: 70px;
+  letter-spacing: 8px;
+}
+.welcome-des {
+  font-size: 12px;
+  line-height: 24px;
+  opacity: 0.8;
+  margin: 9px 0 18px 0;
+}
+.img-2024 {
+  max-height: 371px;
+}
+.join-now {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
