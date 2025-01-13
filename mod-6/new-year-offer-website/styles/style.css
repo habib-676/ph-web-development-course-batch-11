@@ -12,7 +12,15 @@
   font-family: "Merriweather", serif;
   font-style: normal;
 }
-
+.btn-primary {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 24px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 6px;
+}
 /* body */
 body {
   margin: 96px 112px;
@@ -97,8 +105,34 @@ header {
 .img-2024 {
   max-height: 371px;
 }
+/* place-section */
+.place-section {
+  height: 385px;
+  background: linear-gradient(rgba(255, 0, 0, 0.1), #ff000000);
+  border: none;
+  border-radius: 12px;
+  margin: 96px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 38px;
+}
+.places > p {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 44px;
+}
+p > span {
+  color: red;
+}
 .join-now {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+button > a {
+  text-decoration: none;
+  color: white;
 }
