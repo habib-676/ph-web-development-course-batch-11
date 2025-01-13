@@ -187,12 +187,50 @@ main {
 }
 .cv {
   display: flex;
+  gap: 10px;
 }
 .cv-title {
   font-size: 24px;
   color: #474747;
+  margin-bottom: 24px;
 }
 .cv-subtitle {
   font-size: 20px;
   color: #474747;
+}
+.resume-section button {
+  margin-top: 40px;
+}
+footer {
+  padding: 104px 184px;
+  background-color: #fff8f3;
+}
+.footer-part {
+  display: flex;
+  gap: 94px;
+  align-items: start;
+  justify-content: space-evenly;
+}
+.footer-part h2 {
+  margin-bottom: 16px;
+}
+.icon-container {
+  margin-top: 24px;
+}
+.icon-container > img {
+  margin-right: 19px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 19px;
+}
+form > input,
+textarea {
+  width: 368px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  padding: 14px 0 14px 24px;
 }
