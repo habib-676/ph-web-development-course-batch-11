@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-size: 30px;
+      }
+      .container {
+        height: 90vh;
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        column-gap: 10px;
+      }
+      .left-box {
+        background-color: bisque;
+        border-radius: 20px;
+      }
+      .right-box {
+        background-color: gray;
+        border-radius: 20px;
+      }
+      .left-box,
+      .right-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* responsive part */
+      @media screen and (max-width: 576px) {
+        .container {
+          display: grid;
+          height: 100vh;
+          grid-template-rows: 1fr 3fr;
+          grid-template-columns: none;
+          row-gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-box">Left</div>
+      <div class="right-box">Right</div>
+    </div>
+  </body>
+</html>
