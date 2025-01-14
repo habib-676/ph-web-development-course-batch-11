@@ -21,6 +21,16 @@
   border: none;
   border-radius: 6px;
 }
+.des-primary {
+  font-size: 16px;
+  color: #07021194;
+  line-height: 25px;
+}
+.title-primary {
+  color: red;
+  font-size: 19px;
+  font-weight: 400;
+}
 /* body */
 body {
   margin: 96px 112px;
@@ -135,4 +145,21 @@ p > span {
 button > a {
   text-decoration: none;
   color: white;
+}
+/* soon-section */
+.soon-section {
+  height: 370px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coming-soon {
+  font-size: 38px;
+}
+.image-circle-box {
+  width: 370px;
+  height: 370px;
+  border: #ff0000 5px solid;
+  border-radius: 50%;
+  padding: 40px;
 }
