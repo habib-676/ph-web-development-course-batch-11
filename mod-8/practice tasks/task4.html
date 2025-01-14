@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-4</title>
+    <style>
+      .container {
+        margin: 3rem;
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: space-evenly;
+      }
+      .card {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .card img {
+        width: 300px;
+      }
+
+      @media screen and (max-width: 576px) {
+        .container,
+        .card {
+          display: grid;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-1 card">
+        <img src="images/images-1.jpeg" alt="" />
+        <div class="contents">
+          <h2>Title-1</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            ipsam, esse aperiam libero in facere, odit doloremque dolore
+            possimus enim quam. Veritatis a similique doloremque temporibus.
+            Sunt et rerum sint?
+          </p>
+          <button class="btn">Read More</button>
+        </div>
+      </div>
+      <div class="card-2 card">
+        <img src="images/images-2.avif" alt="" />
+        <div class="contents">
+          <h2>Title-2</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            ipsam, esse aperiam libero in facere, odit doloremque dolore
+            possimus enim quam. Veritatis a similique doloremque temporibus.
+            Sunt et rerum sint?
+          </p>
+          <button class="btn">Read More</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
