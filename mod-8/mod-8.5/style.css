@@ -1,0 +1,35 @@
+/* shared */
+.light {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.calender {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 50px repeat(5, 70px);
+  row-gap: 20px;
+  column-gap: 5px;
+}
+.date {
+  background-color: rgb(72, 205, 238);
+  font-size: 1.5em;
+  border: none;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day {
+  background-color: blueviolet;
+  font-size: 1.3rem;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: wheat;
+}
+h1 {
+  text-align: center;
+}
