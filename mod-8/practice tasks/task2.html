@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task-2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 1.5rem;
+        color: white;
+        border-radius: 10px;
+      }
+      .container {
+        height: 90vh;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+      .part-1 {
+        height: 100%;
+        width: 100%;
+        background-color: red;
+        padding: 5px 5px;
+      }
+      .mini-1 {
+        gap: 10px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .part-2 {
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        background-color: orange;
+      }
+      .mini-2 {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .part-3 {
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        background-color: rebeccapurple;
+      }
+      .part-4 {
+        height: 100%;
+        width: 100%;
+        padding: 5px;
+        background-color: green;
+      }
+      @media screen and (max-width: 576px) {
+        .container,
+        .mini-1,
+        .mini-2 {
+          display: grid;
+        }
+        .part-1,
+        .part-2,
+        .part-3,
+        .part-4 {
+          width: 95vw;
+          height: 25vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="part-1">1</div>
+      <div class="mini-1">
+        <div class="part-2">2</div>
+        <div class="mini-2">
+          <div class="part-3">3</div>
+          <div class="part-4">4</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
