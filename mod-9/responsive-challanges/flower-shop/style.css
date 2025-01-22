@@ -32,9 +32,6 @@
   );
   color: black;
 }
-.btn-primary::after {
-  background-color: red;
-}
 /* hero-section */
 .hero-section {
   background-color: rgba(229, 84, 115, 0.1);
