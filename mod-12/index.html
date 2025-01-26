@@ -29,9 +29,45 @@
       src="https://kit.fontawesome.com/847464fa6f.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- styles -->
+    <style>
+      .font-bebas {
+        font-family: "Bebas Neue", serif;
+      }
+      .font-roboto {
+        font-family: "Roboto", serif;
+        font-optical-sizing: auto;
+      }
+    </style>
   </head>
-  <body>
-    <header></header>
+  <body class="font-roboto">
+    <header
+      style="
+        background-image: url(./icons/Group\ 33064.png);
+        background-position: 35% -50px;
+        background-repeat: no-repeat;
+        background-size: contain;
+      "
+      class="px-4 py-2 bg-none lg:bg-[#FFFBF0] lg:px-32 lg:py-4"
+    >
+      <!-- nav-bar -->
+      <div class="flex mt-4 justify-between items-center lg:mt-8">
+        <div>
+          <img class="h-6 lg:h-9" src="./icons/logo.png" alt="" />
+        </div>
+        <ul class="hidden lg:flex justify-between gap-11 text-base font-medium">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+        <!-- menu -->
+        <a class="lg:hidden" href=""
+          ><i class="fa-solid fa-bars text-lg"></i
+        ></a>
+      </div>
+    </header>
     <main></main>
     <footer></footer>
   </body>
