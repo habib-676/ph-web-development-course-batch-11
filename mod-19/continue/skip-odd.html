@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skip odds</title>
+    <style>
+      body {
+        text-align: center;
+        color: brown;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to this page</h1>
+    <script>
+      for (let i = 1; i <= 40; i++) {
+        if (i % 2 !== 0) continue; // Skip odd numbers
+        document.write(i, "<br>"); // Print even number
+      }
+    </script>
+  </body>
+</html>
