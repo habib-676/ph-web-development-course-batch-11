@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skip odds</title>
+    <style>
+      body {
+        text-align: center;
+        color: brown;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to this page</h1>
+    <script>
+      for (let i = 55; i <= 85; i++) {
+        if (i % 5 === 0) {
+          continue;
+        }
+        document.write(i, "<br>");
+      }
+    </script>
+  </body>
+</html>
