@@ -7,11 +7,3 @@ if (str.includes("a" && "e" && "i" && "o" && "u")) {
 } else {
   console.log("All vowels are not found in this word");
 }
-
-// for (let letter of str) {
-//   if (letter == "a" && "e" && "i" && "o" && "u") {
-//     console.log("All vowels are found in this word");
-//   } else {
-//     console.log("All vowels are not found in this word");
-//   }
-// }
