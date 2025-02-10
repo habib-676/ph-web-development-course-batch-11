@@ -2,7 +2,7 @@
 
 let fullname = "hAAjfdlsa A";
 let count = 0;
-for (const letter of str) {
+for (const letter of fullname) {
   if (letter == "a") {
     count++;
   }
