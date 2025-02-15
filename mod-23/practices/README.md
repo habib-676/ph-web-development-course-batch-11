@@ -1,20 +1,23 @@
 # js-problems-part2-practice-tasks
 
-### Task -1: 
+### Task -1:
+
 Find the lowest number in the array below.
 <br>
 `const heights2 = [167, 190, 120, 165, 137];`
 
 ---
 
-### Task -2: 
+### Task -2:
+
 Find the friend with the smallest name.
 <br>
 `const heights2 = ['rahim', 'robin', 'rafi', 'ron', 'rashed'];`
 
 ---
 
-### Task-3: 
+### Task-3:
+
 Your task is to calculate the `total budget` required to buy electronics:
 
         laptop = 35000 tk
@@ -24,7 +27,8 @@ Your task is to calculate the `total budget` required to buy electronics:
 Write a JavaScript function named `calculateElectronicsBudget` that takes in the number of `laptop, tablets, and mobile` and returns the `total money required`.
 
 ---
-### Task-4: 
+
+### Task-4:
 
 You are `given an array of phone objects`, each containing information about the `model, brand, and price`. Your task is to write a JavaScript function named `findAveragePhonePrice` that takes this `array as input` and returns the `average price of phone`.
 
@@ -42,8 +46,11 @@ You are `given an array of phone objects`, each containing information about the
         ];
 
 ---
+
 ### Task -5: (Hard)
+
 For each employee their current salary is calculated by multiplying yearly increment with experience then adding the result to the starting salary. Now calculate is the total salary has to be provided by the company in a month.
+
 ```
  const employees = [
             { name: "shahin", experience: 5, starting: 20000, increment: 5000 },
@@ -52,5 +59,3 @@ For each employee their current salary is calculated by multiplying yearly incre
             { name: "shohel", experience: 0, starting: 29000, increment: 4000 },
         ];
 ```
-
-
