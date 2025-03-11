@@ -4,18 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      .card {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        background-color: aquamarine;
+        border: 1px solid red;
+      }
+    </style>
   </head>
   <body>
     <main>
       <div class="buttondiv">
-        <button onclick="handleUsers()">Get Users</button
-        ><button>Button 2</button>
+        <button onclick="handleUsers()">Get Users</button>
+        <button id="read-button" onclick="handlePosts()">Read Posts</button>
       </div>
+      <!-- -------- -->
       <div class="content-div">
         <ol id="users-list"></ol>
       </div>
+
+      <div id="post-div"></div>
     </main>
 
+    <script src="./styles/posts.js"></script>
     <script src="./styles/users.js"></script>
   </body>
 </html>
