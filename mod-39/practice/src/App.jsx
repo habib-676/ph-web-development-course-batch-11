@@ -2,6 +2,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Count from "./Count";
+import Display from "./Display";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         </a>
       </div>
       <Count></Count>
+      <Display></Display>
     </>
   );
 }
