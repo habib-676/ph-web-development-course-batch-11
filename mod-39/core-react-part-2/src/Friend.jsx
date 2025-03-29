@@ -1,5 +1,5 @@
 export default function Friend({ friend }) {
-  console.log(friend);
+  // console.log(friend);
   const { name, email, phone, address } = friend;
   return (
     <div className="card">

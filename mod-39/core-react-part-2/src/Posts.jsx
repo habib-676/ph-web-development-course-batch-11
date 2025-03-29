@@ -1,5 +1,7 @@
+import { use } from "react";
 
-export default function Posts({}) {
+export default function Posts({ postPromise }) {
+  const posts = use(postPromise);
   return (
     <div
       className="card"
@@ -8,6 +10,12 @@ export default function Posts({}) {
       }}
     >
       <h2>All posts :</h2>
+      {posts.map((res) => (
+        <div className="card">
+          <h5>{res.title}</h5>
+          <p>{res.body}</p>
+        </div>
+      ))}
     </div>
   );
 }
