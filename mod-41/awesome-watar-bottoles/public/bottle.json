@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "brand": "Hydro Flask",
+    "capacityOz": 32,
+    "material": "Stainless Steel",
+    "type": "Insulated",
+    "priceUSD": 45,
+    "weightOz": 15,
+    "lifespanYears": 10,
+    "suitableFor": "hot and cold",
+    "image": "https://example.com/images/hydroflask.jpg"
+  },
+  {
+    "id": 2,
+    "brand": "Nalgene",
+    "capacityOz": 32,
+    "material": "BPA-Free Plastic",
+    "type": "Wide Mouth",
+    "priceUSD": 15,
+    "weightOz": 6,
+    "lifespanYears": 5,
+    "suitableFor": "cold",
+    "image": "https://example.com/images/nalgene.jpg"
+  },
+  {
+    "id": 3,
+    "brand": "CamelBak Eddy+",
+    "capacityOz": 25,
+    "material": "Tritan Plastic",
+    "type": "Straw Lid",
+    "priceUSD": 18,
+    "weightOz": 5,
+    "lifespanYears": 4,
+    "suitableFor": "cold",
+    "image": "https://example.com/images/camelbak.jpg"
+  },
+  {
+    "id": 4,
+    "brand": "S'well",
+    "capacityOz": 17,
+    "material": "Stainless Steel",
+    "type": "Slim/Insulated",
+    "priceUSD": 35,
+    "weightOz": 11,
+    "lifespanYears": 8,
+    "suitableFor": "hot and cold",
+    "image": "https://example.com/images/swell.jpg"
+  },
+  {
+    "id": 5,
+    "brand": "Contigo AUTOSEAL",
+    "capacityOz": 24,
+    "material": "BPA-Free Plastic",
+    "type": "Leak-Proof Lid",
+    "priceUSD": 20,
+    "weightOz": 9,
+    "lifespanYears": 6,
+    "suitableFor": "cold",
+    "image": "https://example.com/images/contigo.jpg"
+  }
+]
