@@ -42,7 +42,11 @@ const Navbar = () => {
       <span className="flex gap-5" onClick={() => setOpen(!open)}>
         {open ? <X></X> : <Menu className="md:hidden" />}
 
-        <ul className={`md:hidden absolute bg-amber-50 text-black p-3 rounded-2xl duration-500 ${open? 'top-12': '-top-64'}`}>
+        <ul
+          className={`md:hidden absolute bg-amber-50 text-black p-3 rounded-2xl duration-500 ${
+            open ? "top-12" : "-top-64"
+          }`}
+        >
           {links}
         </ul>
         <h3 className="hidden md:block">My NavBar</h3>
@@ -50,7 +54,7 @@ const Navbar = () => {
 
       <ul className="hidden md:flex justify-around gap-5 ">{links}</ul>
 
-      <button>Sign In</button>
+      <button className="btn">Sign In</button>
     </nav>
   );
 };
