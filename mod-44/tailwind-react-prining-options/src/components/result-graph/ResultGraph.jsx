@@ -75,13 +75,13 @@ const studentMarks = [
 
 const ResultGraph = () => {
   return (
-    <div>
+    <div className="hidden md:block">
       <LineChart width={800} height={500} data={studentMarks}>
-      <XAxis dataKey="name"></XAxis>
-      <YAxis></YAxis>
+        <XAxis dataKey="name"></XAxis>
+        <YAxis></YAxis>
         <Line type="monotone" dataKey="math" stroke="#e5e7e6"></Line>
-        <Line type="monotone" dataKey={'physics'} stroke="#b80c09"></Line>
-        <Line type="monotone" dataKey={'chemistry'} stroke="yellow"></Line>
+        <Line type="monotone" dataKey={"physics"} stroke="#b80c09"></Line>
+        <Line type="monotone" dataKey={"chemistry"} stroke="yellow"></Line>
       </LineChart>
     </div>
   );
