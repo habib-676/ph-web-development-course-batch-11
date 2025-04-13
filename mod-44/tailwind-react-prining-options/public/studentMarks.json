@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Ayaan",
+    "subjects": {
+      "physics": 78,
+      "chemistry": 84,
+      "math": 91
+    }
+  },
+  {
+    "id": 2,
+    "name": "Zara",
+    "subjects": {
+      "physics": 88,
+      "chemistry": 79,
+      "math": 85
+    }
+  },
+  {
+    "id": 3,
+    "name": "Rihan",
+    "subjects": {
+      "physics": 92,
+      "chemistry": 89,
+      "math": 95
+    }
+  },
+  {
+    "id": 4,
+    "name": "Meera",
+    "subjects": {
+      "physics": 67,
+      "chemistry": 73,
+      "math": 70
+    }
+  },
+  {
+    "id": 5,
+    "name": "Kabir",
+    "subjects": {
+      "physics": 81,
+      "chemistry": 76,
+      "math": 88
+    }
+  },
+  {
+    "id": 6,
+    "name": "Anaya",
+    "subjects": {
+      "physics": 90,
+      "chemistry": 91,
+      "math": 93
+    }
+  },
+  {
+    "id": 7,
+    "name": "Yash",
+    "subjects": {
+      "physics": 69,
+      "chemistry": 72,
+      "math": 65
+    }
+  },
+  {
+    "id": 8,
+    "name": "Tara",
+    "subjects": {
+      "physics": 85,
+      "chemistry": 88,
+      "math": 80
+    }
+  },
+  {
+    "id": 9,
+    "name": "Ishaan",
+    "subjects": {
+      "physics": 75,
+      "chemistry": 70,
+      "math": 78
+    }
+  },
+  {
+    "id": 10,
+    "name": "Diya",
+    "subjects": {
+      "physics": 93,
+      "chemistry": 95,
+      "math": 97
+    }
+  }
+]
