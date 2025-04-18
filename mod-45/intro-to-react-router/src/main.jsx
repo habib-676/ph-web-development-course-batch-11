@@ -69,6 +69,10 @@ const router = createBrowserRouter([
           ),
         Component: CommentDetails,
       },
+      {
+        path: "*",
+        element: <h2>Not found : 404 status</h2>,
+      },
     ],
   },
   {
