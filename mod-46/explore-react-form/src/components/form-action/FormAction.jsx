@@ -9,9 +9,9 @@ const FormAction = () => {
   return (
     <div>
       <form action={handleFormAction}>
-        <input type="text" name="name" id="" placeholder="Your Name" />
+        <input type="text" name="name" placeholder="Your Name" />
         <br />
-        <input type="email" name="email" placeholder="Enter email" id="" />
+        <input type="email" name="email" placeholder="Enter email" />
         <br />
         <input type="submit" value="Submit" />
       </form>
