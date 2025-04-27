@@ -1,11 +1,15 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
-import React, { useState } from "react";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import React, { useRef, useState } from "react";
 import { auth } from "../../firebase.init";
 import { Link } from "react-router";
 
 const Login = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false);
+  const emailRef = useRef();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -18,13 +22,33 @@ const Login = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess(true);
+
+        if (!result.user.emailVerified) {
+          alert("Verify your Email please");
+          return;
+        } else {
+          setSuccess(true);
+        }
       })
       .catch((err) => {
         setErrorMsg(err.message);
         console.log(err);
       });
   };
+
+  const handleForgetPass = () => {
+    console.log(emailRef.current.value);
+    const currEmail = emailRef.current.value;
+    setErrorMsg("");
+
+    // send email pass
+    sendPasswordResetEmail(auth, currEmail)
+      .then(() => {
+        alert("Reset email is sent");
+      })
+      .catch((err) => setErrorMsg(err.message));
+  };
+
   return (
     <div>
       <form onSubmit={handleLogin} className="flex items-center justify-center">
@@ -35,6 +59,7 @@ const Login = () => {
             name="email"
             className="input"
             placeholder="Email"
+            ref={emailRef}
           />
           <label className="label">Password</label>
           <input
@@ -43,7 +68,7 @@ const Login = () => {
             className="input"
             placeholder="Password"
           />
-          <div>
+          <div onClick={handleForgetPass}>
             <a className="link link-hover">Forgot password?</a>
           </div>
           <button className="btn btn-neutral mt-4">Login</button>
