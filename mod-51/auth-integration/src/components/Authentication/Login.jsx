@@ -15,6 +15,7 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
 
+
   return (
     <div className="card bg-base-100 mx-auto mt-16 max-w-sm shrink-0 shadow-2xl">
       <h1 className="text-5xl font-bold text-center my-10">Login now!</h1>
