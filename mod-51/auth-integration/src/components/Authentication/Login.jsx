@@ -1,9 +1,10 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const { signInUser } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -11,10 +12,12 @@ const Login = () => {
     const password = e.target.password.value;
 
     signInUser(email, password)
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result);
+        navigate("/profile");
+      })
       .catch((err) => console.log(err));
   };
-
 
   return (
     <div className="card bg-base-100 mx-auto mt-16 max-w-sm shrink-0 shadow-2xl">

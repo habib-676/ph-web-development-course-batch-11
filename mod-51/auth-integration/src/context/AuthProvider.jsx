@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -21,10 +22,13 @@ const AuthProvider = ({ children }) => {
 
   const signOutUser = () => {
     signOut(auth);
+
+    setLoading(true);
   };
 
   const userInfo = {
     user,
+    loading,
     createUser,
     signInUser,
     signOutUser,
@@ -37,7 +41,10 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("current user: ", currentUser);
+
       setUser(currentUser);
+
+      setLoading(false);
     });
     return () => {
       unSubscribe();
