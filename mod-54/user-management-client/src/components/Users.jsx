@@ -1,7 +1,9 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 
 const Users = ({ userPromise }) => {
-  const data = use(userPromise);
+  const initialData = use(userPromise);
+  const [users, setUsers] = useState(initialData);
+
   const handleAddUser = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -17,10 +19,16 @@ const Users = ({ userPromise }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(user)
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
-      .then((data) => console.log("data after post", data));
+      .then((data) => {
+        console.log("data after post", data);
+        const newUsers = [...users, data];
+        setUsers(newUsers);
+      });
+
+    e.target.reset();
   };
   return (
     <div>
@@ -32,7 +40,7 @@ const Users = ({ userPromise }) => {
         <input type="submit" value="Add user" />
       </form>
       <div>
-        {data.map((user) => (
+        {users.map((user) => (
           <p key={user.id}>
             {user.name} || {user.email}
           </p>
