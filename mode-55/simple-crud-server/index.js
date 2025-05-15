@@ -11,7 +11,6 @@ app.use(express.json());
 const uri =
   "mongodb+srv://simpleDBUser:XGpTC4ivUaktvW2t@cluster0.eui8ux4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -23,15 +22,28 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
+    const database = client.db("usersDB");
+    const usersCollection = database.collection("users");
 
-    // await client.db("admin").command({ ping: 1 });
-
-    // console.log(
-    //   "Pinged your deployment. You successfully connected to MongoDB!"
-    // );
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+    app.post("/users", async (req, res) => {
+      console.log("Data in the server ", req.body);
+      const result = await usersCollection.insertOne(req.body);
+      res.send(result);
+    });
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log(
+      "Pinged your deployment. You successfully connected to MongoDB!"
+    );
+  } catch (e) {
+    console.log(
+      `A MongoBulkWriteException occurred, but there are successfully processed documents.`
+    );
+    let ids = e.result.result.insertedIds;
+    for (let id of Object.values(ids)) {
+      console.log(`Processed a document with id ${id._id}`);
+    }
+    console.log(`Number of documents inserted: ${e.result.result.nInserted}`);
   }
 }
 
