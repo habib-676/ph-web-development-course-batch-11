@@ -34,6 +34,15 @@ const Users = ({ userPromise }) => {
         }
       });
   };
+
+  const handleUserDlt = (id) => {
+    fetch(`http://localhost:3000/users/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log("after delete", data));
+  };
+
   return (
     <div>
       {/* add user */}
@@ -50,6 +59,14 @@ const Users = ({ userPromise }) => {
         {users.map((user) => (
           <p key={user._id}>
             {user.name}: {user.email}
+            <button
+              onClick={() => handleUserDlt(user._id)}
+              style={{
+                marginLeft: "10px",
+              }}
+            >
+              X
+            </button>
           </p>
         ))}
       </div>
