@@ -37,6 +37,30 @@ async function run() {
       res.send(result);
     });
 
+    app.put("/users/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const user = req.body;
+      //
+      const updateDoc = {
+        $set: {
+          name: user.name,
+          email: user.email,
+        },
+      };
+      console.log(user);
+
+      const options = { upsert: true };
+      // Update the first document that matches the filter
+      const result = await usersCollection.updateOne(
+        filter,
+        updateDoc,
+        options
+      );
+
+      res.send(result);
+    });
+
     app.get("/users/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
