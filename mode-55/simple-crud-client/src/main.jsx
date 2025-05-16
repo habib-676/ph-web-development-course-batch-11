@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "./layouts/MainLayout";
 import App from "./App";
 import UserDetails from "./components/UserDetails";
+import UpdateUsers from "./components/UpdateUsers";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,16 @@ const router = createBrowserRouter([
       {
         path: "/users/:id",
         Component: UserDetails,
-        loader: ({ params }) => fetch(`http://localhost:3000/users/${params.id}`),
+        hydrateFallbackElement: <p>...</p>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/users/${params.id}`),
+      },
+      {
+        path: "/update/:id",
+        Component: UpdateUsers,
+        hydrateFallbackElement: <p>...</p>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/users/${params.id}`),
       },
     ],
   },

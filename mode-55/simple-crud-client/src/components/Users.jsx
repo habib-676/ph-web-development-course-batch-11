@@ -66,6 +66,9 @@ const Users = ({ userPromise }) => {
           <p key={user._id}>
             {user.name}: {user.email}
             <Link to={`/users/${user._id}`}>Details</Link>
+            <button>
+              <Link to={`/update/${user._id}`}>Edit</Link>
+            </button>
             <button
               onClick={() => handleUserDlt(user._id)}
               style={{
