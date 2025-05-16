@@ -22,12 +22,18 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
-    const database = client.db("usersDB");
-    const usersCollection = database.collection("users");
+    const usersCollection = client.db("usersDB").collection("users");
+
+    app.get("/users", async (req, res) => {
+      const cursor = usersCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
 
     app.post("/users", async (req, res) => {
       console.log("Data in the server ", req.body);
-      const result = await usersCollection.insertOne(req.body);
+      const newUser = req.body;
+      const result = await usersCollection.insertOne(newUser);
       res.send(result);
     });
     // Send a ping to confirm a successful connection
@@ -35,15 +41,7 @@ async function run() {
     console.log(
       "Pinged your deployment. You successfully connected to MongoDB!"
     );
-  } catch (e) {
-    console.log(
-      `A MongoBulkWriteException occurred, but there are successfully processed documents.`
-    );
-    let ids = e.result.result.insertedIds;
-    for (let id of Object.values(ids)) {
-      console.log(`Processed a document with id ${id._id}`);
-    }
-    console.log(`Number of documents inserted: ${e.result.result.nInserted}`);
+  } finally {
   }
 }
 
