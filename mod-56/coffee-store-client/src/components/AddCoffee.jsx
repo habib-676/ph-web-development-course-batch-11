@@ -63,12 +63,12 @@ const AddCoffee = () => {
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-            <label className="label w-full">Supplier</label>
+            <label className="label w-full">Price</label>
             <input
               type="text"
-              name="supplier"
+              name="price"
               className="input"
-              placeholder="Enter coffee supplier"
+              placeholder="Enter coffee price"
             />
           </fieldset>
           <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
