@@ -1,16 +1,10 @@
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    // const name = form.name.value;
-    // const chef = form.chef.value;
-    // const supplier = form.supplier.value;
-    // const taste = form.taste.value;
-    // const category = form.category.value;
-    // const details = form.details.value;
-    // const photo = form.photo.value;
 
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
@@ -24,7 +18,18 @@ const AddCoffee = () => {
       body: JSON.stringify(newCoffee),
     })
       .then((res) => res.json())
-      .then((data) => console.log("after adding data from db", data));
+      .then((data) => {
+        if (data.insertedId) {
+          console.log("after adding data from db", data);
+          Swal.fire({
+            title: "Coffee added!",
+            icon: "success",
+            draggable: true,
+          });
+
+          form.reset();
+        }
+      });
   };
   return (
     <div className="p-16">
