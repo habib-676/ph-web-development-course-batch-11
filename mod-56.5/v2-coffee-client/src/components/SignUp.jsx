@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser } = use(AuthContext);
@@ -9,11 +10,38 @@ const SignUp = () => {
     const form = e.target;
     const formData = new FormData(form);
 
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const { email, password, ...userProfile } = Object.fromEntries(
+      formData.entries()
+    );
+
+    // const email = formData.get("email");
+    // const password = formData.get("password");
 
     createUser(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        console.log(result.user);
+        //set data in db
+
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userProfile),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                title: "Your account created",
+                icon: "success",
+                draggable: true,
+              });
+
+              form.reset();
+            }
+          });
+      })
       .catch((error) => console.log(error));
   };
   return (
@@ -21,6 +49,36 @@ const SignUp = () => {
       <h2 className="text-3xl text-center font-black">Sign up Now !</h2>
       <div className="card-body">
         <form className="fieldset" onSubmit={handleSignUp}>
+          <label className="label">Name</label>
+          <input
+            type="text"
+            className="input"
+            placeholder="Name :"
+            name="name"
+          />
+
+          <label className="label">Address</label>
+          <input
+            type="text"
+            className="input"
+            placeholder="Address :"
+            name="address"
+          />
+          <label className="label">Phone</label>
+          <input
+            type="number"
+            className="input"
+            placeholder="Phone :"
+            name="phone"
+          />
+          <label className="label">Photo</label>
+          <input
+            type="text"
+            className="input"
+            placeholder="PhotoURL :"
+            name="photo"
+          />
+
           <label className="label">Email</label>
           <input
             type="email"
@@ -35,10 +93,8 @@ const SignUp = () => {
             placeholder="Password"
             name="password"
           />
-          <div>
-            <a className="link link-hover">Forgot password?</a>
-          </div>
-          <button className="btn btn-neutral mt-4">Login</button>
+
+          <button className="btn btn-neutral mt-4">Sign Up</button>
         </form>
       </div>
     </div>
