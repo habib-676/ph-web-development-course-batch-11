@@ -8,6 +8,8 @@ import AddCoffee from "./components/AddCoffee.jsx";
 import UpdateCoffee from "./components/UpdateCoffee.jsx";
 import Loader from "./components/Loader.jsx";
 import CoffeeDetails from "./components/CoffeeDetails.jsx";
+import SignIn from "./components/SignIn.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
         hydrateFallbackElement: <Loader />,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/coffees/${params.id}`),
+      },
+      {
+        path: "sign-in",
+        Component: SignIn,
+      },
+      {
+        path: "sign-up",
+        Component: SignUp,
       },
     ],
   },
