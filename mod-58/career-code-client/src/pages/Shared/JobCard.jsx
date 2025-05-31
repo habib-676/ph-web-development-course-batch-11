@@ -40,7 +40,7 @@ const JobCard = ({ job }) => {
 
         <div className="flex justify-end">
           <Link to={`/jobs/${_id}`} className="btn btn-primary">
-            Apply Now
+            Show Details
           </Link>
         </div>
       </div>

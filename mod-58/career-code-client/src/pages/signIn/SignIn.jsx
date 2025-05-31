@@ -3,16 +3,25 @@ import signInAni from "../../assets/Lotties/signIn.json";
 import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import SharedSocial from "../Shared/SharedSocial";
+import { useLocation, useNavigate } from "react-router";
 
 const SignIn = () => {
   const { signInUser } = use(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state || "/";
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     signInUser(email, password)
-      .then((res) => console.log(res.user))
+      .then((res) => {
+        console.log(res.user);
+        navigate(from);
+      })
       .catch((error) => console.log(error));
     form.reset();
   };
