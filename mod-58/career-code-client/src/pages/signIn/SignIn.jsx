@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import signInAni from "../../assets/Lotties/signIn.json";
 import { use } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
+import SharedSocial from "../Shared/SharedSocial";
 
 const SignIn = () => {
   const { signInUser } = use(AuthContext);
@@ -52,6 +53,7 @@ const SignIn = () => {
                 value="Sign In"
               />
             </form>
+            <SharedSocial></SharedSocial>
           </div>
         </div>
       </div>
