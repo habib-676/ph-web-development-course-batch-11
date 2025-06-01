@@ -8,10 +8,12 @@ import JobDetails from "../pages/job-details/JobDetails";
 import PrivateRouter from "./PrivateRouter";
 import JobApply from "../pages/job-details/JobApply";
 import MyApplications from "../pages/my-applications/MyApplications";
+import AddJob from "../pages/add-job/AddJob";
 
 export const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <div>Page not found || 404 error</div>,
     Component: RootLayout,
     children: [
       {
@@ -37,6 +39,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <MyApplications />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "addJob",
+        element: (
+          <PrivateRouter>
+            <AddJob></AddJob>
           </PrivateRouter>
         ),
       },
