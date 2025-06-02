@@ -45,6 +45,13 @@ async function run() {
       res.send(result);
     });
 
+    // adding a new job
+    app.post("/jobs", async (req, res) => {
+      const newJob = req.body;
+      const result = await jobsCollection.insertOne(newJob);
+      res.send(result);
+    });
+
     // job application related apis
 
     app.get("/applications", async (req, res) => {
