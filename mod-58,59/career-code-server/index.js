@@ -79,6 +79,21 @@ async function run() {
       res.send(result);
     });
 
+    // update application :
+    app.patch("/applications/:id", async (req, res) => {
+      const id = req.body.id;
+      const filter = {
+        _id: new ObjectId(id),
+      };
+      const updatedDoc = {
+        $set: {
+          status: req.body.status,
+        },
+      };
+      const result = await applicationCollection.updateOne(filter, updatedDoc);
+      res.send(result);
+    });
+
     app.post("/applications", async (req, res) => {
       const application = req.body;
       const result = await applicationCollection.insertOne(application);
