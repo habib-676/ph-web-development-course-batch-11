@@ -1,3 +1,4 @@
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const AddJob = () => {
@@ -9,10 +10,10 @@ const AddJob = () => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    const { salaryMin, salaryMax, currency, ...newJob } = data;
+    const { min, max, currency, ...newJob } = data;
     newJob.salaryRange = {
-      salaryMin,
-      salaryMax,
+      min,
+      max,
       currency,
     };
 
@@ -25,6 +26,19 @@ const AddJob = () => {
     newJob.responsibilities = newJob.responsibilities
       .split(",")
       .map((res) => res.trim());
+
+    // status
+    newJob.status = "active";
+
+    // save new job to the database
+    axios
+      .post("http://localhost:3000/jobs", newJob)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("New job added");
+        }
+      })
+      .catch((error) => console.log(error));
     console.log(newJob);
   };
   return (
@@ -129,7 +143,7 @@ const AddJob = () => {
               <label className="label">Minimum Amount</label>
               <input
                 type="number"
-                name="salaryMin"
+                name="min"
                 className="input"
                 placeholder="Enter amount"
               />
@@ -139,7 +153,7 @@ const AddJob = () => {
               <label className="label">Max Amount</label>
               <input
                 type="number"
-                name="salaryMax"
+                name="max"
                 className="input"
                 placeholder="Enter amount"
               />
@@ -154,9 +168,9 @@ const AddJob = () => {
                 className="select select-primary"
               >
                 <option disabled={true}>Currency</option>
-                <option>BDT</option>
-                <option>USD</option>
-                <option>EU</option>
+                <option value={"bdt"}>BDT</option>
+                <option value={"usd"}>USD</option>
+                <option value={"eu"}>EU</option>
               </select>
             </div>
           </fieldset>
@@ -210,7 +224,7 @@ const AddJob = () => {
               type="email"
               readOnly
               defaultValue={user.email}
-              name="email"
+              name="hr_email"
               className="input"
               placeholder="HR Email :"
             />

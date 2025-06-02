@@ -18,6 +18,7 @@ const NavBar = () => {
 
       {/* recruiter role */}
       <li>{user && <NavLink to={"/addJob"}>Add Job</NavLink>}</li>
+      <li>{user && <NavLink to={"/myPostedJobs"}>My posted Jobs</NavLink>}</li>
 
       <li>
         <NavLink to={"/"}>Contact</NavLink>
