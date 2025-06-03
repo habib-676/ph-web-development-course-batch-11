@@ -8,6 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.init";
+import axios from "axios";
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -34,6 +35,19 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
+
+      if (currentUser?.email) {
+        const userData = { email: currentUser.email };
+        axios
+          .post("http://localhost:3000/jwt", userData, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("Token after post", res.data);
+          })
+          .catch((error) => console.log(error));
+      }
+
       console.log("User in the state", currentUser);
     });
 
