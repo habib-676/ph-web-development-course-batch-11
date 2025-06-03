@@ -22,6 +22,7 @@ const ApplicationsLists = ({ myApplicationsPromise }) => {
           <tbody>
             {applications.map((application, index) => (
               <ApplicationRow
+                key={index}
                 application={application}
                 index={index}
               ></ApplicationRow>
