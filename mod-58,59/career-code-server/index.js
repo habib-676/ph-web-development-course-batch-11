@@ -16,6 +16,15 @@ app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
 app.use(cookieParser());
 
+// firebase
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./firebaseAdminKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
 const verifyToken = (req, res, next) => {
   const token = req?.cookies?.token;
 
@@ -33,6 +42,19 @@ const verifyToken = (req, res, next) => {
   });
 
   console.log("Cookie in the middleware : ", token);
+};
+
+const verifyFirebaseToken = async (req, res, next) => {
+  const authHeader = req.headers?.authorization;
+  const token = authHeader.split(" ")[1];
+  if (!token) {
+    return res.status(401).send({ message: "unauthorized access" });
+  }
+  console.log("Fb token :", token);
+
+  const userInfo = await admin.auth().verifyIdToken(token);
+  req.tokenEmail = userInfo.email;
+  next();
 };
 // mongo
 
@@ -103,29 +125,37 @@ async function run() {
 
     // job application related apis
 
-    app.get("/applications", verifyToken, async (req, res) => {
-      const email = req.query.email;
+    app.get(
+      "/applications",
+      verifyToken,
+      verifyFirebaseToken,
+      async (req, res) => {
+        const email = req.query.email;
 
-      // check the email from decoded
-      if (email !== req.decoded.email) {
-        return res.status(401).send({ message: "Forbidden access" });
+        // check the email from decoded
+        if (email !== req.decoded.email) {
+          return res.status(401).send({ message: "Forbidden access" });
+        }
+        if (email !== req.tokenEmail) {
+          return res.status(403).send({ message: "forbidden access" });
+        }
+
+        const query = {
+          applicant: email,
+        };
+        const result = await applicationCollection.find(query).toArray();
+
+        for (const application of result) {
+          const jobId = application.jobId;
+          const jobQuery = { _id: new ObjectId(jobId) };
+          const job = await jobsCollection.findOne(jobQuery);
+          application.title = job.title;
+          application.company = job.company;
+          application.company_logo = job.company_logo;
+        }
+        res.send(result);
       }
-
-      const query = {
-        applicant: email,
-      };
-      const result = await applicationCollection.find(query).toArray();
-
-      for (const application of result) {
-        const jobId = application.jobId;
-        const jobQuery = { _id: new ObjectId(jobId) };
-        const job = await jobsCollection.findOne(jobQuery);
-        application.title = job.title;
-        application.company = job.company;
-        application.company_logo = job.company_logo;
-      }
-      res.send(result);
-    });
+    );
 
     // update application :
     app.patch("/applications/:id", async (req, res) => {
