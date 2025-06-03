@@ -14,7 +14,26 @@ require("dotenv").config();
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
 app.use(express.json());
+app.use(cookieParser());
 
+const verifyToken = (req, res, next) => {
+  const token = req?.cookies?.token;
+
+  if (!token) {
+    return res.status(401).send({ message: "Unauthorized access" });
+  }
+  // verify
+
+  jwt.verify(token, process.env.JWT_ACCESS_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized access" });
+    }
+    req.decoded = decoded;
+    next();
+  });
+
+  console.log("Cookie in the middleware : ", token);
+};
 // mongo
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.eui8ux4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
@@ -84,8 +103,14 @@ async function run() {
 
     // job application related apis
 
-    app.get("/applications", async (req, res) => {
+    app.get("/applications", verifyToken, async (req, res) => {
       const email = req.query.email;
+
+      // check the email from decoded
+      if (email !== req.decoded.email) {
+        return res.status(401).send({ message: "Forbidden access" });
+      }
+
       const query = {
         applicant: email,
       };
