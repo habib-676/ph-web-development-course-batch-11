@@ -46,15 +46,21 @@ const verifyToken = (req, res, next) => {
 
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers?.authorization;
-  const token = authHeader.split(" ")[1];
-  if (!token) {
+
+  if (!token || !authHeader.startWith("Bearer ")) {
     return res.status(401).send({ message: "unauthorized access" });
   }
+
+  const token = authHeader.split(" ")[1];
   console.log("Fb token :", token);
 
-  const userInfo = await admin.auth().verifyIdToken(token);
-  req.tokenEmail = userInfo.email;
-  next();
+  try {
+    const userInfo = await admin.auth().verifyIdToken(token);
+    req.tokenEmail = userInfo.email;
+    next();
+  } catch (error) {
+    return res.status(404).send({ message: "Unauthorized access" });
+  }
 };
 // mongo
 
