@@ -47,12 +47,12 @@ const verifyToken = (req, res, next) => {
 const verifyFirebaseToken = async (req, res, next) => {
   const authHeader = req.headers?.authorization;
 
+  const token = authHeader.split(" ")[1];
+  console.log("Fb token :", token);
+
   if (!token || !authHeader.startWith("Bearer ")) {
     return res.status(401).send({ message: "unauthorized access" });
   }
-
-  const token = authHeader.split(" ")[1];
-  console.log("Fb token :", token);
 
   try {
     const userInfo = await admin.auth().verifyIdToken(token);
